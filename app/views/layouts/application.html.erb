@@ -7,9 +7,20 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container is-fullhd">
+      <%= yield %>
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Evalua</strong> by <a href="https://3zcurdia.com">Luis Ezcurdia</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+          </p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
