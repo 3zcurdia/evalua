@@ -1,11 +1,28 @@
-# README
+# Evalua
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Autograde tool through github
 
-Things you may want to cover:
+## TODO
+
+- [ ] Auth through Github
+- [ ] Fetch user info from Github
+- [ ] User Lists
+- [ ] User Roles
+- [ ] Implement Rubrics
+- [ ] Create evaluation using rubric
+- [ ] Evaluation using bell and round
+- [ ] Evaluate pull request
+- [ ] Submit project
+- [ ] Evaluate project
+- [ ] Export to CSV
+- [ ] Professor dashboard
+- [ ] Student dashboard
+
+## Requirements
 
 * Ruby version
+
+This application will require ruby 2.7.0
 
 * System dependencies
 
@@ -13,7 +30,15 @@ Things you may want to cover:
 
 * Database creation
 
+```
+rake db:setup
+```
+
 * Database initialization
+
+```
+rake db:seed
+```
 
 * How to run the test suite
 
