@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  enum role: %i[user moderator admin]
   def self.from_omniauth(auth)
     where(provider: auth['provider'], uid: auth['uid']).first || create_from_omniauth(auth)
   end

@@ -12,6 +12,7 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use SCSS for stylesheets
 gem 'jbuilder', '~> 2.7'
 gem 'omniauth-github'
+gem 'pundit'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
