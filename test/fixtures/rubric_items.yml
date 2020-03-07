@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: rubric_items
+#
+#  id         :bigint           not null, primary key
+#  name       :string           not null
+#  rubric_id  :bigint           not null
+#  scores     :json
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  rubric: one
+  scores: 
+
+two:
+  name: MyString
+  rubric: two
+  scores: 

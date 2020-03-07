@@ -12,9 +12,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_07_081611) do
+ActiveRecord::Schema.define(version: 2020_03_07_171015) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
+
+  create_table 'evaluations', force: :cascade do |t|
+    t.string 'name', null: false
+    t.bigint 'rubric_id', null: false
+    t.string 'repo_url'
+    t.string 'type'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['rubric_id'], name: 'index_evaluations_on_rubric_id'
+  end
+
+  create_table 'points', force: :cascade do |t|
+    t.bigint 'score_id', null: false
+    t.bigint 'rubric_item_id', null: false
+    t.integer 'weight', default: 0
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['rubric_item_id'], name: 'index_points_on_rubric_item_id'
+    t.index ['score_id'], name: 'index_points_on_score_id'
+  end
+
+  create_table 'rubric_items', force: :cascade do |t|
+    t.string 'name', null: false
+    t.bigint 'rubric_id', null: false
+    t.json 'scores'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['rubric_id'], name: 'index_rubric_items_on_rubric_id'
+  end
+
+  create_table 'rubrics', force: :cascade do |t|
+    t.string 'name', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+  end
+
+  create_table 'scores', force: :cascade do |t|
+    t.bigint 'evaluation_id', null: false
+    t.bigint 'user_id', null: false
+    t.integer 'total_points', default: 0
+    t.string 'source_url'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['evaluation_id'], name: 'index_scores_on_evaluation_id'
+    t.index ['user_id'], name: 'index_scores_on_user_id'
+  end
 
   create_table 'users', force: :cascade do |t|
     t.string 'provider'
@@ -27,4 +73,11 @@ ActiveRecord::Schema.define(version: 2020_03_07_081611) do
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'role', default: 0
   end
+
+  add_foreign_key 'evaluations', 'rubrics'
+  add_foreign_key 'points', 'rubric_items'
+  add_foreign_key 'points', 'scores'
+  add_foreign_key 'rubric_items', 'rubrics'
+  add_foreign_key 'scores', 'evaluations'
+  add_foreign_key 'scores', 'users'
 end

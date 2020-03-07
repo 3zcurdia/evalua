@@ -2,23 +2,19 @@
 
 # == Schema Information
 #
-# Table name: users
+# Table name: rubric_items
 #
 #  id         :bigint           not null, primary key
-#  provider   :string
-#  uid        :string
-#  nickname   :string
-#  name       :string
-#  email      :string
-#  image_url  :string
+#  name       :string           not null
+#  rubric_id  :bigint           not null
+#  scores     :json
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  role       :integer          default("user")
 #
 
 require 'test_helper'
 
-class UserTest < ActiveSupport::TestCase
+class RubricItemTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

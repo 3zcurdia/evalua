@@ -6,7 +6,7 @@ Autograde tool through github
 
 - [x] Auth through Github
 - [x] Fetch user info from Github
-- [ ] User Roles
+- [x] User Roles
 - [ ] Implement Rubrics
 - [ ] Create evaluation using rubric
 - [ ] Evaluation using bell and round
