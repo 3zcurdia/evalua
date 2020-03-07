@@ -10,6 +10,7 @@ class User < ApplicationRecord
     create! do |user|
       user.provider  = auth['provider']
       user.uid       = auth['uid']
+      user.email     = auth.dig('info', 'email')
       user.name      = auth.dig('info', 'name')
       user.nickname  = auth.dig('info', 'nickname')
       user.image_url = auth.dig('info', 'image')
