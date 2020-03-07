@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 2020_03_06_230804) do
   create_table 'users', force: :cascade do |t|
     t.string 'provider'
     t.string 'uid'
+    t.string 'nickname'
     t.string 'name'
     t.string 'email'
+    t.string 'image_url'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
   end

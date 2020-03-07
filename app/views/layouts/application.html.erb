@@ -4,23 +4,70 @@
     <title>Evalua</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application' %>
   </head>
-
   <body>
+    <section class="hero is-primary is-bold <%= 'is-fullheight-with-navbar' unless current_user %>">
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <!-- <div class="navbar-brand">
+              <a class="navbar-item">
+                <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
+              </a>
+              <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </div> -->
+            <div id="navbarMenuHeroA" class="navbar-menu">
+              <div class="navbar-end">
+                <% if current_user %>
+                  <a class="navbar-item">
+                    <span class="icon">
+                      <i class="fa fa-github"></i>
+                    </span>
+                    <span>
+                      <%= current_user.nickname %>
+                    </span>
+                  </a>
+                  <%= link_to "Sign out", signout_path, class: 'navbar-item', method: :delete %>
+                <% else %>
+                  <span class="navbar-item">
+                    <%= link_to "/auth/github", class: 'button is-black' do %>
+                      <span class="icon">
+                        <i class="fa fa-github"></i>
+                      </span>
+                      <span>Sign In</span>
+                    <% end %>
+                  </span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="hero-body">
+        <div class="container">
+          <p class="title"><%= content_for?(:title) ? yield(:title) : 'Evalua' %></p>
+          <h2 class="subtitle"><%= yield(:subtitle) %></h2>
+        </div>
+      </div>
+    </section>
     <div class="container is-fullhd">
       <%= yield %>
-      <footer class="footer">
-        <div class="content has-text-centered">
-          <p>
-            <strong>Evalua</strong> by <a href="https://3zcurdia.com">Luis Ezcurdia</a>. The source code is licensed
-            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
-          </p>
-        </div>
-      </footer>
     </div>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Evalua</strong> by <a href="https://3zcurdia.com">Luis Ezcurdia</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+        </p>
+      </div>
+    </footer>
+    <script src="https://use.fontawesome.com/c303f16347.js"></script>
   </body>
 </html>

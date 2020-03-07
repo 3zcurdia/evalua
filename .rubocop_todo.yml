@@ -59,3 +59,7 @@ Style/IfUnlessModifier:
 # URISchemes: http, https
 Layout/LineLength:
   Max: 198
+
+Style/NumericLiterals:
+  Exclude:
+    - 'db/schema.rb'

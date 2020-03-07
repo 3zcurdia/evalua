@@ -5,8 +5,10 @@ class CreateUsers < ActiveRecord::Migration[6.0]
     create_table :users do |t|
       t.string :provider
       t.string :uid
+      t.string :nickname
       t.string :name
       t.string :email
+      t.string :image_url
 
       t.timestamps
     end

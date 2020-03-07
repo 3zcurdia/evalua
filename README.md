@@ -4,9 +4,8 @@ Autograde tool through github
 
 ## TODO
 
-- [ ] Auth through Github
-- [ ] Fetch user info from Github
-- [ ] User Lists
+- [x] Auth through Github
+- [x] Fetch user info from Github
 - [ ] User Roles
 - [ ] Implement Rubrics
 - [ ] Create evaluation using rubric
