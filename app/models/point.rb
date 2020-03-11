@@ -19,9 +19,17 @@ class Point < ApplicationRecord
   validates :user_evaluation, :rubric_item, presence: true
   validate :weight_in_range
 
+  after_save :update_user_evaluation
+
   def weight_in_range
     return if weight >= rubric_item&.min_score.to_i && weight <= rubric_item&.max_score.to_i
 
     errors.add(:weight, 'Invalid weight value')
+  end
+
+  private
+
+  def update_user_evaluation
+    user_evaluation.update_total_points!
   end
 end

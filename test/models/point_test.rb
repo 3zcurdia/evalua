@@ -37,4 +37,9 @@ class PointTest < ActiveSupport::TestCase
     point.user_evaluation = nil
     refute point.valid?
   end
+
+  def test_update_user_evluation_update
+    point.update(weight: 2)
+    assert_equal 10, point.user_evaluation.total_points
+  end
 end
