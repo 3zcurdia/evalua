@@ -18,7 +18,9 @@ class UserEvaluation < ApplicationRecord
   belongs_to :user, inverse_of: :user_evaluations
   has_many :points
 
-  def completed?; end
+  def completed?
+    false
+  end
 
   def completed; end
 

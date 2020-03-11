@@ -18,6 +18,10 @@ class Evaluation < ApplicationRecord
   has_many :user_evaluations, inverse_of: :evaluation
   validates :name, presence: true
 
+  def completed?
+    false
+  end
+
   def completed; end
 
   def average_user_evaluation; end

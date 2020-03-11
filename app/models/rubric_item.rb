@@ -17,6 +17,16 @@ class RubricItem < ApplicationRecord
 
   after_initialize :set_score_placeholder
 
+  validates :scores, presence: true
+
+  def max_score
+    @max_score ||= scores.map { |x| x['weight'] }.max
+  end
+
+  def min_score
+    @min_score ||= scores.map { |x| x['weight'] }.min
+  end
+
   def set_score_placeholder
     self.scores ||= [
       { weight: 3, name: 'Excelent', summary: '' },

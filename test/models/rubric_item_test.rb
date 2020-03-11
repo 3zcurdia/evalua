@@ -16,7 +16,7 @@ require 'test_helper'
 
 class RubricItemTest < ActiveSupport::TestCase
   def item
-    rubric_items(:one)
+    rubric_items(:code)
   end
 
   def test_valid

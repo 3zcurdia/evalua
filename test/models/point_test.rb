@@ -15,7 +15,16 @@
 require 'test_helper'
 
 class PointTest < ActiveSupport::TestCase
+  def point
+    points(:code)
+  end
+
   def test_valid
-    assert points(:code).valid?
+    assert point.valid?
+  end
+
+  def test_invalid_weight
+    point.weight = 10
+    refute point.valid?
   end
 end

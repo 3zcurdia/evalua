@@ -12,19 +12,6 @@
 
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: One of Two
-  rubric: two
-  scores:
-    - weight: 3
-      name: Excelent
-    - weight: 2
-      name: Good
-    - weight: 1
-      name: Regular
-    - weight: 0
-      name: Bad
-
 code:
   name: code
   rubric: one

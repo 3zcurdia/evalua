@@ -15,4 +15,11 @@
 class Point < ApplicationRecord
   belongs_to :user_evaluation
   belongs_to :rubric_item
+
+  validate :weight_in_range
+
+  def weight_in_range
+    return if weight >= rubric_item.min_score && weight <= rubric_item.max_score
+    errors.add(:weight, 'Invalid weight value')
+  end
 end
