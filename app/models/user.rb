@@ -13,7 +13,7 @@
 #  image_url  :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  role       :integer          default("user")
+#  role       :integer          default("0")
 #
 
 class User < ApplicationRecord
