@@ -20,13 +20,25 @@ class UserEvaluation < ApplicationRecord
 
   validates :evaluation, :user, presence: true
 
-  def completed?
-    false
+  def update_total_points!
+    update(total_points: calc_total_points)
   end
 
-  def completed; end
+  def completed?
+    completion_percent == 1.0
+  end
 
-  def average; end
+  def completion_percent
+    points.count.to_f / evaluation.rubric_items_count
+  end
 
-  def calc_total_points; end
+  def average
+    @average ||= total_points.to_f / evaluation.rubric_items_count
+  end
+
+  private
+
+  def calc_total_points
+    points.sum(&:weight)
+  end
 end

@@ -18,6 +18,7 @@ class Evaluation < ApplicationRecord
   has_many :user_evaluations, inverse_of: :evaluation
 
   validates :name, :rubric, presence: true
+  delegate :items_count, to: :rubric, prefix: true
 
   def completed?
     false

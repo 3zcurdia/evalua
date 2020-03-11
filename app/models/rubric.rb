@@ -13,4 +13,8 @@
 class Rubric < ApplicationRecord
   has_many :rubric_items, inverse_of: :rubric
   validates :name, presence: true
+
+  def items_count
+    rubric_items.count
+  end
 end

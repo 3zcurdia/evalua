@@ -32,4 +32,9 @@ class PointTest < ActiveSupport::TestCase
     point.rubric_item = nil
     refute point.valid?
   end
+
+  def test_invalid_user_evaluation
+    point.user_evaluation = nil
+    refute point.valid?
+  end
 end

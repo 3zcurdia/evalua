@@ -21,6 +21,7 @@ class Point < ApplicationRecord
 
   def weight_in_range
     return if weight >= rubric_item&.min_score.to_i && weight <= rubric_item&.max_score.to_i
+
     errors.add(:weight, 'Invalid weight value')
   end
 end
