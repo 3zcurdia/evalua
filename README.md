@@ -7,12 +7,11 @@ Autograde tool through github
 - [x] Auth through Github
 - [x] Fetch user info from Github
 - [x] User Roles
-- [ ] Implement Rubrics
-- [ ] Create evaluation using rubric
-- [ ] Evaluation using bell and round
-- [ ] Evaluate pull request
-- [ ] Submit project
-- [ ] Evaluate project
+- [x] Implement Rubrics
+- [x] Create evaluation using rubric
+- [x] Evaluation using bell and round
+- [x] Evaluate pull request
+- [x] Evaluate repository
 - [ ] Export to CSV
 - [ ] Professor dashboard
 - [ ] Student dashboard
