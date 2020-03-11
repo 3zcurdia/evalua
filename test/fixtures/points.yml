@@ -36,3 +36,18 @@ complexity:
   user_evaluation: one
   rubric_item: complexity
   weight: 1
+
+deliverables_two:
+  user_evaluation: two
+  rubric_item: deliverables
+  weight: 2
+
+git_two:
+  user_evaluation: two
+  rubric_item: git
+  weight: 3
+
+complexity_two:
+  user_evaluation: two
+  rubric_item: complexity
+  weight: 1

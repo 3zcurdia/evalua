@@ -16,7 +16,9 @@
 one:
   evaluation: one
   user: one
+  total_points: 10
 
 two:
   evaluation: one
   user: two
+  total_points: 6

@@ -21,14 +21,28 @@ class Evaluation < ApplicationRecord
   delegate :items_count, to: :rubric, prefix: true
 
   def completed?
-    false
+    completion_percent == 1.0
   end
 
-  def completed; end
+  def completion_percent
+    user_evaluations.sum(&:completion_percent) / user_evaluations.count
+  end
 
-  def average_user_evaluation; end
+  def average_user_evaluation
+    user_total_points.sum.to_f / user_evaluations.count
+  end
 
-  def max_user_evaluation; end
+  def max_user_evaluation
+    user_total_points.max
+  end
 
-  def min_user_evaluation; end
+  def min_user_evaluation
+    user_total_points.min
+  end
+
+  private
+
+  def user_total_points
+    user_evaluations.map(&:total_points)
+  end
 end
