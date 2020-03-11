@@ -32,6 +32,7 @@ class User < ApplicationRecord
       user.name      = auth.dig('info', 'name')
       user.nickname  = auth.dig('info', 'nickname')
       user.image_url = auth.dig('info', 'image')
+      user.role      = :admin if ENV.fetch('GITHUB_ADMINS', '').split(',').include?(user.nickname)
     end
   end
 end
