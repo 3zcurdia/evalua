@@ -15,7 +15,7 @@
 class RubricItem < ApplicationRecord
   belongs_to :rubric, inverse_of: :rubric_items
 
-  validates :scores, presence: true
+  validates :name, :rubric, :scores, presence: true
 
   after_initialize :set_score_placeholder
 

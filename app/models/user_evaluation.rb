@@ -18,6 +18,8 @@ class UserEvaluation < ApplicationRecord
   belongs_to :user, inverse_of: :user_evaluations
   has_many :points, inverse_of: :user_evaluation
 
+  validates :evaluation, :user, presence: true
+
   def completed?
     false
   end
