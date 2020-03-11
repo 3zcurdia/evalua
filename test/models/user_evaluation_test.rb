@@ -37,6 +37,11 @@ class UserEvaluationTest < ActiveSupport::TestCase
     assert_equal 1.0, user_evaluation.completion_percent
   end
 
+  def test_bell
+    assert_equal 1.0, user_evaluations(:one).bell
+    assert_equal 0.6, user_evaluations(:two).bell
+  end
+
   def test_average
     user_evaluation.total_points = 10
     assert_equal 2, user_evaluation.average

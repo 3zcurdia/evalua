@@ -32,6 +32,10 @@ class UserEvaluation < ApplicationRecord
     points.count.to_f / evaluation.rubric_items_count
   end
 
+  def bell
+    @bell ||= total_points.to_f / evaluation.max_user_evaluation
+  end
+
   def average
     @average ||= total_points.to_f / evaluation.rubric_items_count
   end
