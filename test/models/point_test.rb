@@ -15,7 +15,7 @@
 require 'test_helper'
 
 class PointTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def test_valid
+    assert points(:code).valid?
+  end
 end

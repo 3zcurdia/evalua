@@ -16,7 +16,7 @@
 require 'test_helper'
 
 class EvaluationTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def test_valid
+    assert evaluations(:one).valid?
+  end
 end

@@ -15,7 +15,19 @@
 require 'test_helper'
 
 class RubricItemTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def item
+    rubric_items(:one)
+  end
+
+  def test_valid
+    assert item.valid?
+  end
+
+  def test_score_weight
+    assert_equal 3, item.scores.first['weight']
+  end
+
+  def test_score_name
+    assert_equal 'Excelent', item.scores.first['name']
+  end
 end

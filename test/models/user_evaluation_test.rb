@@ -17,6 +17,6 @@ require 'test_helper'
 
 class UserEvaluationTest < ActiveSupport::TestCase
   def test_valid
-    assert scores(:one).valid?
+    assert user_evaluations(:one).valid?
   end
 end

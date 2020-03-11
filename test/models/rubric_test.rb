@@ -13,7 +13,7 @@
 require 'test_helper'
 
 class RubricTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def test_valid
+    assert rubrics(:one).valid?
+  end
 end

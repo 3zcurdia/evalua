@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 2020_03_11_174452) do
     t.integer 'weight', default: 0
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.bigint 'user_evaluations_id'
+    t.bigint 'user_evaluation_id'
     t.index ['rubric_item_id'], name: 'index_points_on_rubric_item_id'
-    t.index ['user_evaluations_id'], name: 'index_points_on_user_evaluations_id'
+    t.index ['user_evaluation_id'], name: 'index_points_on_user_evaluation_id'
   end
 
   create_table 'rubric_items', force: :cascade do |t|

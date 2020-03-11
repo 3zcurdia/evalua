@@ -4,6 +4,6 @@ class RenameTableScoresToUserEvaluations < ActiveRecord::Migration[6.0]
   def change
     rename_table :scores, :user_evaluations
     remove_column :points, :score_id
-    add_reference :points, :user_evaluations, index: true
+    add_reference :points, :user_evaluation, index: true
   end
 end

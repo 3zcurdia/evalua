@@ -17,4 +17,12 @@ class Evaluation < ApplicationRecord
   belongs_to :rubric
   has_many :user_evaluations, inverse_of: :evaluation
   validates :name, presence: true
+
+  def completed; end
+
+  def average_user_evaluation; end
+
+  def max_user_evaluation; end
+
+  def min_user_evaluation; end
 end

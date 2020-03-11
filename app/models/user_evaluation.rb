@@ -18,12 +18,11 @@ class UserEvaluation < ApplicationRecord
   belongs_to :user, inverse_of: :user_evaluations
   has_many :points
 
-  def average
-  end
+  def completed?; end
 
-  def completed
-  end
+  def completed; end
 
-  def set_total_points
-  end
+  def average; end
+
+  def calc_total_points; end
 end

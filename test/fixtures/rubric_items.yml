@@ -13,11 +13,79 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  rubric: one
-  scores: 
-
-two:
-  name: MyString
+  name: One of Two
   rubric: two
-  scores: 
+  scores:
+    - weight: 3
+      name: Excelent
+    - weight: 2
+      name: Good
+    - weight: 1
+      name: Regular
+    - weight: 0
+      name: Bad
+
+code:
+  name: code
+  rubric: one
+  scores:
+    - weight: 3
+      name: Excelent
+    - weight: 2
+      name: Good
+    - weight: 1
+      name: Regular
+    - weight: 0
+      name: Bad
+
+quality:
+  name: quality
+  rubric: one
+  scores:
+    - weight: 3
+      name: Excelent
+    - weight: 2
+      name: Good
+    - weight: 1
+      name: Regular
+    - weight: 0
+      name: Bad
+
+deliverables:
+  name: deliverables
+  rubric: one
+  scores:
+    - weight: 3
+      name: Excelent
+    - weight: 2
+      name: Good
+    - weight: 1
+      name: Regular
+    - weight: 0
+      name: Bad
+
+git:
+  name: Control Version
+  rubric: one
+  scores:
+    - weight: 3
+      name: Excelent
+    - weight: 2
+      name: Good
+    - weight: 1
+      name: Regular
+    - weight: 0
+      name: Bad
+
+complexity:
+  name: Complexity
+  rubric: one
+  scores:
+    - weight: 3
+      name: Excelent
+    - weight: 2
+      name: Good
+    - weight: 1
+      name: Regular
+    - weight: 0
+      name: Bad

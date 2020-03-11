@@ -12,12 +12,27 @@
 
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  score: one
-  rubric_item: one
+code:
+  user_evaluation: one
+  rubric_item: code
   weight: 1
 
-two:
-  score: two
-  rubric_item: two
+quality:
+  user_evaluation: one
+  rubric_item: quality
+  weight: 2
+
+deliverables:
+  user_evaluation: one
+  rubric_item: deliverables
+  weight: 3
+
+git:
+  user_evaluation: one
+  rubric_item: git
+  weight: 2
+
+complexity:
+  user_evaluation: one
+  rubric_item: complexity
   weight: 1
