@@ -13,6 +13,6 @@
 #
 
 class Point < ApplicationRecord
-  belongs_to :score
+  belongs_to :user_evaluation
   belongs_to :rubric_item
 end

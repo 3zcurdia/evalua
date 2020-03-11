@@ -13,7 +13,10 @@
 #  updated_at    :datetime         not null
 #
 
-class Score < ApplicationRecord
-  belongs_to :evaluation
-  belongs_to :user
+require 'test_helper'
+
+class UserEvaluationTest < ActiveSupport::TestCase
+  def test_valid
+    assert scores(:one).valid?
+  end
 end

@@ -15,5 +15,6 @@
 
 class Evaluation < ApplicationRecord
   belongs_to :rubric
+  has_many :user_evaluations, inverse_of: :evaluation
   validates :name, presence: true
 end
