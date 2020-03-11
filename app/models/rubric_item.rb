@@ -13,11 +13,11 @@
 #
 
 class RubricItem < ApplicationRecord
-  belongs_to :rubric
-
-  after_initialize :set_score_placeholder
+  belongs_to :rubric, inverse_of: :rubric_items
 
   validates :scores, presence: true
+
+  after_initialize :set_score_placeholder
 
   def max_score
     @max_score ||= scores.map { |x| x['weight'] }.max

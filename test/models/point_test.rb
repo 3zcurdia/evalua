@@ -27,4 +27,9 @@ class PointTest < ActiveSupport::TestCase
     point.weight = 10
     refute point.valid?
   end
+
+  def test_invalid_rubric_item
+    point.rubric_item = nil
+    refute point.valid?
+  end
 end
