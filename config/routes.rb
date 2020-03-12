@@ -6,10 +6,15 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   delete 'signout', to: 'sessions#destroy', as: 'signout'
 
-  resources :pull_request_evaluations, except: %i[index show destroy]
-  resources :repository_evaluations, except: %i[index show destroy]
-  resources :evaluations, only: %i[index show destroy]
-  resources :rubrics
+  resources :evaluations, only: %i[index show destroy] do
+    collection do
+      resources :pull_requests, controller: :pull_request_evaluations, except: %i[index show destroy]
+      resources :repositories, controller: :repository_evaluations, except: %i[index show destroy]
+    end
+  end
+  resources :rubrics do
+    resources :items, controller: :rubric_items
+  end
 
   root 'home#index'
 end
