@@ -9,55 +9,62 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <section class="hero is-primary is-bold <%= 'is-fullheight-with-navbar' unless current_user %>">
-      <div class="hero-head">
-        <nav class="navbar">
-          <div class="container">
-            <!-- <div class="navbar-brand">
-              <a class="navbar-item">
-                <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
-              </a>
-              <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-            </div> -->
-            <div id="navbarMenuHeroA" class="navbar-menu">
-              <div class="navbar-end">
-                <% if signed_in? %>
-                  <a class="navbar-item">
-                    <span class="icon">
-                      <i class="fa fa-github"></i>
-                    </span>
-                    <span>
-                      <%= current_user.nickname %>
-                    </span>
-                  </a>
-                  <%= link_to "Sign out", signout_path, class: 'navbar-item', method: :delete %>
-                <% else %>
-                  <span class="navbar-item">
-                    <%= link_to "/auth/github", class: 'button is-black' do %>
-                      <span class="icon">
-                        <i class="fa fa-github"></i>
-                      </span>
-                      <span>Sign In</span>
-                    <% end %>
-                  </span>
-                <% end %>
+    <nav class="navbar is-primary" role="navigation" aria-label="dropdown navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <%= link_to root_path, class: 'navbar-item' do %>
+          <span class="icon"><i class="fa fa-angellist fa-2x"></i></span>
+          <span class="title has-text-white">&nbsp;Evalua</span>
+          <% end %>
+          <span class="navbar-burger burger" data-target="mainNavbar">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="mainNavbar" class="navbar-menu">
+          <div class="navbar-end">
+            <% if signed_in? %>
+            <%= link_to "Rubrics", rubrics_path, class: 'navbar-item' %>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+              <div class="navbar-link">
+                <span class="icon"><i class="fa fa-github"></i></span>
+                <span><%= current_user.nickname %></span>
+              </div>
+              <div class="navbar-dropdown">
+                <%= link_to "Sign out", signout_path, class: 'navbar-item', method: :delete %>
               </div>
             </div>
+            <% else %>
+            <span class="navbar-item">
+              <%= link_to "/auth/github", class: 'button is-black' do %>
+              <span class="icon"><i class="fa fa-github"></i></span>
+              <span>Sign In</span>
+              <% end %>
+            </span>
+            <% end %>
           </div>
-        </nav>
+        </div>
       </div>
+    </nav>
+    <% if content_for?(:title) %>
+    <section class="hero is-primary <%= 'is-fullheight-with-navbar' unless signed_in? %>">
       <div class="hero-body">
         <div class="container">
-          <p class="title"><%= content_for?(:title) ? yield(:title) : 'Evalua' %></p>
+          <h1 class="title"><%= yield(:title) %></h1>
           <h2 class="subtitle"><%= yield(:subtitle) %></h2>
         </div>
       </div>
     </section>
+    <% end %>
     <div class="container is-fullhd">
+      <% if flash[:notice].present? %>
+      <div class="notification is-info is-light">
+        <button class="delete"></button>
+        <%= notice %>
+      </div>
+      <% end %>
       <%= yield %>
     </div>
     <footer class="footer">

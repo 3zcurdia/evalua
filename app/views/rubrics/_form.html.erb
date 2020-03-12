@@ -1,0 +1,28 @@
+<%= form_with(model: rubric, local: true) do |form| %>
+  <% if rubric.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rubric.errors.count, "error") %> prohibited this rubric from being saved:</h2>
+
+      <ul>
+        <% rubric.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="columns">
+    <div class="column is-half">
+      <div class="field">
+        <%= form.label :name, class: 'field' %>
+        <div class="control">
+          <%= form.text_field :name, class: 'input' %>
+        </div>
+      </div>
+
+      <div class="control">
+        <%= form.submit class: 'button is-primary' %>
+      </div>
+    </div>
+  </div>
+<% end %>

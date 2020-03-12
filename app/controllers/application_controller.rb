@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate!
     return if signed_in?
+
     head :unauthorized
   end
 
