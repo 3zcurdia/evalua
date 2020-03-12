@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pull_request_evaluation.name %>
+</p>
+
+<p>
+  <strong>Rubric:</strong>
+  <%= @pull_request_evaluation.rubric_id %>
+</p>
+
+<p>
+  <strong>Repo url:</strong>
+  <%= @pull_request_evaluation.repo_url %>
+</p>
+
+<%= link_to 'Edit', edit_pull_request_evaluation_path(@pull_request_evaluation) %> |
+<%= link_to 'Back', pull_request_evaluations_path %>

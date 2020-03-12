@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @repository_evaluation.name %>
+</p>
+
+<p>
+  <strong>Rubric:</strong>
+  <%= @repository_evaluation.rubric_id %>
+</p>
+
+<%= link_to 'Edit', edit_repository_evaluation_path(@repository_evaluation) %> |
+<%= link_to 'Back', repository_evaluations_path %>

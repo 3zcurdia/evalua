@@ -12,28 +12,6 @@ class EvaluationsTest < ApplicationSystemTestCase
     assert_selector 'h1', text: 'Evaluations'
   end
 
-  test 'creating a Evaluation' do
-    visit evaluations_url
-    click_on 'New Evaluation'
-
-    fill_in 'Name', with: @evaluation.name
-    click_on 'Create Evaluation'
-
-    assert_text 'Evaluation was successfully created'
-    click_on 'Back'
-  end
-
-  test 'updating a Evaluation' do
-    visit evaluations_url
-    click_on 'Edit', match: :first
-
-    fill_in 'Name', with: @evaluation.name
-    click_on 'Update Evaluation'
-
-    assert_text 'Evaluation was successfully updated'
-    click_on 'Back'
-  end
-
   test 'destroying a Evaluation' do
     visit evaluations_url
     page.accept_confirm do

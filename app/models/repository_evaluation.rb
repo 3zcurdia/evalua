@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: evaluations
@@ -11,15 +13,5 @@
 #  updated_at :datetime         not null
 #
 
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: Evaluation One
-  rubric: one
-  type: PullRequestEvaluation
-  repo_url: https://github.com/classroom/repo
-
-two:
-  name: Evaluation Two
-  rubric: two
-  type: RepositoryEvaluation
+class RepositoryEvaluation < Evaluation
+end

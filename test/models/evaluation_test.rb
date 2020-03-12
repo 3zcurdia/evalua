@@ -21,7 +21,8 @@ class EvaluationTest < ActiveSupport::TestCase
   end
 
   def test_valid
-    assert evaluation.valid?
+    assert evaluations(:one).valid?
+    assert evaluations(:two).valid?
   end
 
   def test_average_user_evaluation

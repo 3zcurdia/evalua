@@ -21,6 +21,7 @@ one:
   uid: 123
   name: One
   email: user.one@example.com
+  role: admin
 
 two:
   provider: github
