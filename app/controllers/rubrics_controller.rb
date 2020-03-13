@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class RubricsController < ApplicationController
-  before_action :authenticate!
   before_action :set_rubric, only: %i[show edit update destroy]
 
   def index

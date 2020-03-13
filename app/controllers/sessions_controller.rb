@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+  skip_before_action :authenticate!
+
   def create
     user = User.from_omniauth(auth_hash)
     session[:user_id] = user.id

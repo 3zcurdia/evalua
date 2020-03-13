@@ -13,10 +13,25 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'input' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="columns">
+  <% form.object.scores.each do |score| %>
+    <div class="column">
+      <div class="card">
+        <div class="card-content">
+          <p class="title is-4"><%= score['name'] %></p>
+          <p class="subtitle is-6"><%= score['weight'] %> points</p>
+          <%= score['summary'] %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+
+  <div class="controls">
+    <%= form.submit class: 'button is-primary' %>
+    <%= link_to 'Cancel', rubric_path(@rubric), class: 'button' %>
   </div>
 <% end %>

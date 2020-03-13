@@ -58,15 +58,17 @@
       </div>
     </section>
     <% end %>
-    <div class="container is-fullhd">
-      <% if flash[:notice].present? %>
-      <div class="notification is-info is-light">
-        <button class="delete"></button>
-        <%= notice %>
+    <section class="section">
+      <div class="container">
+        <% if flash[:notice].present? %>
+        <div class="notification is-info is-light">
+          <button class="delete"></button>
+          <%= notice %>
+        </div>
+        <% end %>
+        <%= yield %>
       </div>
-      <% end %>
-      <%= yield %>
-    </div>
+    </section>
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
