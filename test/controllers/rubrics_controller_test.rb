@@ -9,6 +9,7 @@ class RubricsControllerTest < ActionDispatch::IntegrationTest
   # end
   #
   # test 'should get index' do
+  #   sign_in_as
   #   get rubrics_url
   #   assert_response :success
   # end
