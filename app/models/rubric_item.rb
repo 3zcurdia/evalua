@@ -7,32 +7,27 @@
 #  id         :bigint           not null, primary key
 #  name       :string           not null
 #  rubric_id  :bigint           not null
-#  scores     :json
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  min_score  :integer          default("0")
+#  max_score  :integer          default("3")
 #
 
 class RubricItem < ApplicationRecord
   belongs_to :rubric, inverse_of: :rubric_items
+  has_many :item_categories, inverse_of: :rubric_item
+  accepts_nested_attributes_for :item_categories
 
-  validates :name, :rubric, :scores, presence: true
+  validates :name, :rubric, presence: true
 
-  after_initialize :set_score_placeholder
+  after_initialize :set_categories
 
-  def max_score
-    @max_score ||= scores.map { |x| x['weight'] }.max
-  end
+  def set_categories
+    return if item_categories.any?
 
-  def min_score
-    @min_score ||= scores.map { |x| x['weight'] }.min
-  end
-
-  def set_score_placeholder
-    self.scores ||= [
-      { weight: 3, name: 'Excelent', summary: '' },
-      { weight: 2, name: 'Good', summary: '' },
-      { weight: 1, name: 'Regular', summary: '' },
-      { weight: 0, name: 'Bad', summary: '' }
-    ]
+    item_categories.build(weight: 3, name: 'Excelent')
+    item_categories.build(weight: 2, name: 'Good')
+    item_categories.build(weight: 1, name: 'Regular')
+    item_categories.build(weight: 0, name: 'Bad')
   end
 end

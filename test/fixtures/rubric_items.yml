@@ -5,9 +5,10 @@
 #  id         :bigint           not null, primary key
 #  name       :string           not null
 #  rubric_id  :bigint           not null
-#  scores     :json
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  min_score  :integer          default("0")
+#  max_score  :integer          default("3")
 #
 
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
@@ -15,64 +16,19 @@
 code:
   name: code
   rubric: one
-  scores:
-    - weight: 3
-      name: Excelent
-    - weight: 2
-      name: Good
-    - weight: 1
-      name: Regular
-    - weight: 0
-      name: Bad
 
 quality:
   name: quality
   rubric: one
-  scores:
-    - weight: 3
-      name: Excelent
-    - weight: 2
-      name: Good
-    - weight: 1
-      name: Regular
-    - weight: 0
-      name: Bad
 
 deliverables:
   name: deliverables
   rubric: one
-  scores:
-    - weight: 3
-      name: Excelent
-    - weight: 2
-      name: Good
-    - weight: 1
-      name: Regular
-    - weight: 0
-      name: Bad
 
 git:
   name: Control Version
   rubric: one
-  scores:
-    - weight: 3
-      name: Excelent
-    - weight: 2
-      name: Good
-    - weight: 1
-      name: Regular
-    - weight: 0
-      name: Bad
 
 complexity:
   name: Complexity
   rubric: one
-  scores:
-    - weight: 3
-      name: Excelent
-    - weight: 2
-      name: Good
-    - weight: 1
-      name: Regular
-    - weight: 0
-      name: Bad

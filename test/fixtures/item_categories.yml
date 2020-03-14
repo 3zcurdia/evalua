@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: item_categories
+#
+#  id             :bigint           not null, primary key
+#  name           :string
+#  weight         :integer
+#  summary        :text
+#  rubric_item_id :bigint           not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+excelent:
+  name: Excelent
+  weight: 3
+  rubric_item: code
+
+good:
+  name: Good
+  weight: 2
+  rubric_item: code
+
+regular:
+  name: Regular
+  weight: 1
+  rubric_item: code
+
+bad:
+  name: Bad
+  weight: 0
+  rubric_item: code

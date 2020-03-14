@@ -12,22 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, class: 'field' %>
     <%= form.text_field :name, class: 'input' %>
   </div>
 
   <div class="columns">
-  <% form.object.scores.each do |score| %>
+    <%= form.fields_for :item_categories do |builder| %>
     <div class="column">
       <div class="card">
         <div class="card-content">
-          <p class="title is-4"><%= score['name'] %></p>
-          <p class="subtitle is-6"><%= score['weight'] %> points</p>
-          <%= score['summary'] %>
+          <p class="title is-4"><%= builder.object.name %></p>
+          <p class="subtitle is-6"><%= builder.object.weight %> points</p>
+          <%= builder.hidden_field :name %>
+          <%= builder.hidden_field :weight %>
+          <%= builder.text_area :summary, placeholder: 'Summary', class: 'textarea' %>
         </div>
       </div>
     </div>
-  <% end %>
+    <% end %>
   </div>
 
   <div class="controls">

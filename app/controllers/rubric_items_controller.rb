@@ -32,7 +32,7 @@ class RubricItemsController < ApplicationController
   def destroy
     @rubric_item = RubricItem.find(params[:id])
     @rubric_item.destroy
-    redirect_to rubric_url, notice: 'Item was successfully destroyed.'
+    redirect_to @rubric_item.rubric, notice: 'Item was successfully destroyed.'
   end
 
   private
@@ -42,6 +42,6 @@ class RubricItemsController < ApplicationController
   end
 
   def rubric_item_params
-    params.require(:rubric_item).permit(:name, :scores)
+    params.require(:rubric_item).permit(:name, item_categories_attributes: {})
   end
 end

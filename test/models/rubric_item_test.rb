@@ -7,9 +7,10 @@
 #  id         :bigint           not null, primary key
 #  name       :string           not null
 #  rubric_id  :bigint           not null
-#  scores     :json
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  min_score  :integer          default("0")
+#  max_score  :integer          default("3")
 #
 
 require 'test_helper'
@@ -23,11 +24,13 @@ class RubricItemTest < ActiveSupport::TestCase
     assert item.valid?
   end
 
-  def test_score_weight
-    assert_equal 3, item.scores.first['weight']
+  def test_initialize_categories
+    assert item.item_categories.any?
   end
 
-  def test_score_name
-    assert_equal 'Excelent', item.scores.first['name']
+  def test_initialize_categories_default
+    first_category = item.item_categories.first
+    assert 'Excelent', first_category.name
+    assert 3, first_category.weight
   end
 end

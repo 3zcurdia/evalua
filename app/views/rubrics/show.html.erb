@@ -1,12 +1,27 @@
 <h1 class="title is-3"><%= @rubric.name %></h1>
 <%= link_to 'Back', rubrics_path, class: 'button' %>
-
 <%= link_to 'Edit', edit_rubric_path(@rubric), class: 'button is-primary' %>
-<hr>
-<h3 class="subtitle">Items</h3>
 <%= link_to 'Add Item', new_rubric_item_path(@rubric), class: 'button is-primary' %>
-<ul>
-  <% @rubric.rubric_items.each do |item| %>
-  <li><%= item.name %> | <%= link_to 'Edit', edit_rubric_item_path(@rubric, item) %></li>
+<hr>
+
+<% @rubric.rubric_items.each do |item| %>
+<p class="is-pulled-right">
+  <%= link_to 'Edit', edit_rubric_item_path(@rubric, item) %> | <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>
+<p class="title is-3"><%= item.name %></p>
+<div class="columns">
+  <% item.item_categories.each do |category| %>
+  <div class="column">
+    <div class="card">
+      <div class="card-content">
+        <p class="title is-4"><%= category.name %></p>
+        <p class="subtitle is-6"><%= category.weight %> points</p>
+        <div class="content">
+          <p><%= category.summary %></p>
+        </div>
+      </div>
+    </div>
+  </div>
   <% end %>
-</ul>
+</div>
+<% end %>

@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_11_174452) do
+ActiveRecord::Schema.define(version: 2020_03_13_173836) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2020_03_11_174452) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.index ['rubric_id'], name: 'index_evaluations_on_rubric_id'
+  end
+
+  create_table 'item_categories', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'weight'
+    t.text 'summary'
+    t.bigint 'rubric_item_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['rubric_item_id'], name: 'index_item_categories_on_rubric_item_id'
   end
 
   create_table 'points', force: :cascade do |t|
@@ -39,9 +49,10 @@ ActiveRecord::Schema.define(version: 2020_03_11_174452) do
   create_table 'rubric_items', force: :cascade do |t|
     t.string 'name', null: false
     t.bigint 'rubric_id', null: false
-    t.json 'scores'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.integer 'min_score', default: 0
+    t.integer 'max_score', default: 3
     t.index ['rubric_id'], name: 'index_rubric_items_on_rubric_id'
   end
 
@@ -75,6 +86,7 @@ ActiveRecord::Schema.define(version: 2020_03_11_174452) do
   end
 
   add_foreign_key 'evaluations', 'rubrics'
+  add_foreign_key 'item_categories', 'rubric_items'
   add_foreign_key 'points', 'rubric_items'
   add_foreign_key 'rubric_items', 'rubrics'
   add_foreign_key 'user_evaluations', 'evaluations'
