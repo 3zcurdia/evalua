@@ -9,6 +9,7 @@
     <%= link_to 'Edit Item', edit_rubric_item_path(@rubric, @rubric_item) %>
   </li>
 <% end %>
-<h1 class='title'><%= @rubric_item.name %></h1>
 
+<h1 class='title'><%= @rubric_item.name %></h1>
+<hr>
 <%= render 'form', rubric_item: @rubric_item %>

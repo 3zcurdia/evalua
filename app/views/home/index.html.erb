@@ -1,2 +1,14 @@
-<%= content_for(:title, 'Welcome to Evalua') %>
-<%= content_for(:subtitle, 'Coding class evaluation from developers to developers') %>
+<section class="hero is-primary <%= 'is-fullheight-with-navbar' unless signed_in? %>">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Welcome to Evalua!</h1>
+      <h2 class="subtitle">Coding evaluation tool from developers to developers</h2>
+    </div>
+  </div>
+</section>
+<% if flash[:notice].present? %>
+<div class="notification is-info is-light">
+  <button class="delete"></button>
+  <%= notice %>
+</div>
+<% end %>

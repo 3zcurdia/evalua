@@ -48,23 +48,8 @@
         </div>
       </div>
     </nav>
-    <section class="section">
-      <div class="container">
-        <% if flash[:notice].present? %>
-        <div class="notification is-info is-light">
-          <button class="delete"></button>
-          <%= notice %>
-        </div>
-        <% end %>
-        <% if signed_in? && content_for?(:breadcrumbs) %>
-          <nav class="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <%= yield(:breadcrumbs) %>
-            </ul>
-          </nav>
-        <% end %>
-        <%= yield %>
-      </div>
+    <section>
+      <%= yield %>
     </section>
     <footer class="footer">
       <div class="content has-text-centered">
