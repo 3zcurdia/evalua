@@ -66,6 +66,13 @@
           <%= notice %>
         </div>
         <% end %>
+        <% if signed_in? && content_for?(:breadcrumbs) %>
+          <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+              <%= yield(:breadcrumbs) %>
+            </ul>
+          </nav>
+        <% end %>
         <%= yield %>
       </div>
     </section>

@@ -1,6 +1,14 @@
-<h1 class='title'>Editing Rubric</h1>
+<% content_for(:breadcrumbs) do %>
+  <li>
+    <%= link_to 'Rubrics', rubrics_path %>
+  </li>
+  <li>
+    <%= link_to @rubric.name, @rubric %>
+  </li>
+  <li class="is-active">
+    <%= link_to 'Edit', edit_rubric_item_path(@rubric) %>
+  </li>
+<% end %>
+<h1 class="title"><%= @rubric.name %></h1>
 
 <%= render 'form', rubric: @rubric %>
-
-<%= link_to 'Show', @rubric, class: 'button is-primary' %>
-<%= link_to 'Back', rubrics_path, class: 'button' %>

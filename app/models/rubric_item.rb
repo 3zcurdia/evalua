@@ -15,7 +15,7 @@
 
 class RubricItem < ApplicationRecord
   belongs_to :rubric, inverse_of: :rubric_items
-  has_many :item_categories, inverse_of: :rubric_item
+  has_many :item_categories, inverse_of: :rubric_item, dependent: :destroy
   accepts_nested_attributes_for :item_categories
 
   validates :name, :rubric, presence: true

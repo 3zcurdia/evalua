@@ -11,10 +11,14 @@
 #
 
 class Rubric < ApplicationRecord
-  has_many :rubric_items, inverse_of: :rubric
+  has_many :rubric_items, inverse_of: :rubric, dependent: :destroy
   validates :name, presence: true
 
   def items_count
     rubric_items.count
+  end
+
+  def max_score
+    rubric_items.sum(&:max_score)
   end
 end

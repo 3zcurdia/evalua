@@ -1,3 +1,14 @@
-<h3 class='title'>New Rubric Item</h3>
+<% content_for(:breadcrumbs) do %>
+  <li>
+    <%= link_to 'Rubrics', rubrics_path %>
+  </li>
+  <li>
+    <%= link_to @rubric.name, @rubric %>
+  </li>
+  <li class="is-active">
+    <%= link_to 'Add Item', new_rubric_item_path(@rubric) %>
+  </li>
+<% end %>
+<h1 class="title">Add Item</h1>
 
 <%= render 'form', rubric_item: @rubric_item %>

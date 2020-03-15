@@ -1,4 +1,11 @@
-<h3 class='title'>New Rubric</h3>
+<% content_for(:breadcrumbs) do %>
+<li>
+  <%= link_to 'Rubrics', rubrics_path %>
+</li>
+<li class="is-active">
+  <%= link_to 'Add Rubric', new_rubric_path %>
+</li>
+<% end %>
 
+<h3 class='title'>Add Rubric</h3>
 <%= render 'form', rubric: @rubric %>
-<%= link_to 'Cancel', rubrics_path, class: 'button is-primary is-light' %>

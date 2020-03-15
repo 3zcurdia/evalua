@@ -14,7 +14,7 @@ class RubricsTest < ApplicationSystemTestCase
 
   test 'creating a Rubric' do
     visit rubrics_url
-    click_on 'New Rubric'
+    click_on 'Add Rubric'
 
     fill_in 'Name', with: @rubric.name
     click_on 'Create Rubric'

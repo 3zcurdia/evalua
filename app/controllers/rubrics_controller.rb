@@ -4,7 +4,7 @@ class RubricsController < ApplicationController
   before_action :set_rubric, only: %i[show edit update destroy]
 
   def index
-    @rubrics = Rubric.all
+    @rubrics = Rubric.includes(:rubric_items).all
   end
 
   def show; end
