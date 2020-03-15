@@ -28,6 +28,6 @@ class RubricItem < ApplicationRecord
     item_categories.build(weight: 3, name: 'Excelent')
     item_categories.build(weight: 2, name: 'Good')
     item_categories.build(weight: 1, name: 'Regular')
-    item_categories.build(weight: 0, name: 'Bad')
+    item_categories.build(weight: 0, name: 'Deficient')
   end
 end

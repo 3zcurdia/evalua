@@ -5,15 +5,13 @@
 <li class="is-active">
   <%= link_to @rubric.name, @rubric %>
 </li>
-<li>
-  <%= link_to 'Add Item', new_rubric_item_path(@rubric) %>
-</li>
 <% end %>
 
 <h1 class="title"><%= @rubric.name %></h1>
 <p class="subtitle is-6">
-  <%= link_to 'Edit', edit_rubric_path(@rubric) %> |
-  <%= link_to "Destroy", @rubric, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to_add path: new_rubric_item_path(@rubric), label: 'Add Item' %> |
+  <%= link_to_edit path: edit_rubric_path(@rubric), label: 'Edit' %> |
+  <%= link_to_destroy path: @rubric, label: 'Destroy' %> |
   Updated at <%= l @rubric.updated_at.to_date, format: :long %>
 </p>
 <hr>
@@ -21,8 +19,8 @@
 <% @rubric.rubric_items.each do |item| %>
 <p class="title is-5"><%= item.name %></p>
 <p class="subtitle is-6">
-  <%= link_to 'Edit', edit_rubric_item_path(@rubric, item) %> |
-  <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to_edit path: edit_rubric_item_path(@rubric, item), label: 'Edit' %>
+  <%= link_to_destroy path: item, label: 'Destroy' %>
 </p>
 <div class="columns">
   <% item.item_categories.each do |category| %>

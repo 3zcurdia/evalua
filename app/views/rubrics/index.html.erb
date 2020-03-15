@@ -1,38 +1,24 @@
-<% content_for(:breadcrumbs) do %>
-<li class="is-active">
-  <%= link_to 'Rubrics', rubrics_path %>
-</li>
-<li>
-  <%= link_to 'Add Rubric', new_rubric_path %>
-</li>
-<% end %>
-
 <h1 class='title'>Rubrics</h1>
+<p class="subtitle is-6">
+  <%= link_to_add path: new_rubric_path, label: 'Add rubric' %>
+</p>
 <hr>
-
-<div class="columns">
-  <% @rubrics.each do |rubric| %>
-  <div class="column">
-    <div class="card">
-      <div class="card-content">
-        <p class="title is-4"><%= rubric.name %></p>
-        <p class="subtitle is-6">
-          Max Score: <%= rubric.max_score %><br>
-          <%= link_to 'Show', rubric %> |
-          <%= link_to 'Edit', edit_rubric_path(rubric) %> |
-          <%= link_to 'Destroy', rubric, method: :delete, data: { confirm: 'Are you sure?' } %>
-         </p>
-        <div class="content">
-          <p>
-            <ul>
-              <% rubric.rubric_items.each do |item| %>
-              <li><%= item.name%></li>
-              <% end %>
-            </ul>
-          </p>
-        </div>
+<% @rubrics.each do |rubric| %>
+<article class="media">
+  <div class="media-content">
+    <div class="content">
+      <p class="title is-4"><%= link_to rubric.name, rubric %></p>
+      <p class="subtitle is-6">
+        <%= link_to_edit path: edit_rubric_path(rubric) %>
+        Max Score: <%= rubric.max_score %></p>
+        <p>
+          <ul>
+            <% rubric.rubric_items.each do |item| %>
+            <li><%= item.name%></li>
+            <% end %>
+          </ul>
+        </p>
       </div>
     </div>
-  </div>
+  </article>
   <% end %>
-</div>

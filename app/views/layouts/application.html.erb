@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Evalua</title>
-     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,7 +12,7 @@
     <nav class="navbar is-dark" role="navigation" aria-label="dropdown navigation">
       <div class="container">
         <div class="navbar-brand">
-          <%= link_to root_path, class: 'navbar-item' do %>
+          <%= link_to dashboard_path, class: 'navbar-item' do %>
           <span class="icon"><i class="fa fa-angellist fa-2x"></i></span>
           <span class="title has-text-white">&nbsp;Evalua</span>
           <% end %>
@@ -46,25 +46,21 @@
         </div>
       </div>
     </nav>
-      <section class="section">
+    <section class="section">
       <div class="container is-fluid">
         <div class="columns">
           <div class="column is-one-quarter">
             <%= render partial: 'menu' %>
           </div>
           <div class="column">
+            <nav class="breadcrumb" aria-label="breadcrumbs">
+              <ul><%= yield(:breadcrumbs) %></ul>
+            </nav>
             <% if flash[:notice].present? %>
             <div class="notification is-info is-light">
               <button class="delete"></button>
               <%= notice %>
             </div>
-            <% end %>
-            <% if signed_in? && content_for?(:breadcrumbs) %>
-            <nav class="breadcrumb" aria-label="breadcrumbs">
-              <ul>
-                <%= yield(:breadcrumbs) %>
-              </ul>
-            </nav>
             <% end %>
             <%= yield %>
           </div>

@@ -3,8 +3,9 @@
     General
   </p>
   <ul class="menu-list">
-    <li><a>Dashboard</a></li>
-    <li><a>Customers</a></li>
+    <li><%= link_to 'Dashboard', dashboard_path, class: active_menu_class('dashboards') %></li>
+    <li><%= link_to 'Rubrics', rubrics_path, class: active_menu_class('rubrics') %></li>
+    <li><%= link_to 'Evaluations', evaluations_path, class: active_menu_class('evaluations') %></li>
   </ul>
   <p class="menu-label">
     Administration
@@ -12,23 +13,12 @@
   <ul class="menu-list">
     <li><a>Team Settings</a></li>
     <li>
-      <a class="is-active">Manage Your Team</a>
+      <a>Manage Your Team</a>
       <ul>
         <li><a>Members</a></li>
         <li><a>Plugins</a></li>
         <li><a>Add a member</a></li>
       </ul>
     </li>
-    <li><a>Invitations</a></li>
-    <li><a>Cloud Storage Environment Settings</a></li>
-    <li><a>Authentication</a></li>
-  </ul>
-  <p class="menu-label">
-    Transactions
-  </p>
-  <ul class="menu-list">
-    <li><a>Payments</a></li>
-    <li><a>Transfers</a></li>
-    <li><a>Balance</a></li>
   </ul>
 </aside>
