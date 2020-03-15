@@ -11,14 +11,33 @@
 #  type       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  aasm_state :string
 #
 
 class Evaluation < ApplicationRecord
+  include AASM
   belongs_to :rubric
   has_many :user_evaluations, inverse_of: :evaluation
 
   validates :name, :rubric, presence: true
   delegate :items_count, to: :rubric, prefix: true
+
+  aasm do
+    state :todo, initial: true
+    state :in_progress, :review, :done
+
+    event :open do
+      transitions from: :todo, to: :in_progress
+    end
+
+    event :close do
+      transitions from: :in_progress, to: :review
+    end
+
+    event :finish do
+      transitions from: :review, to: :done, guard: :completed?
+    end
+  end
 
   def completed?
     completion_percent == 1.0
