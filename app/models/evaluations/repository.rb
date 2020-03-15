@@ -12,6 +12,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  aasm_state :string
+#  closed_at  :datetime
 #
 
 module Evaluations
