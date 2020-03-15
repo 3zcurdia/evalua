@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class RepositoryEvaluationsControllerTest < ActionDispatch::IntegrationTest
+class Evaluations::RepositoriesControllerTest < ActionDispatch::IntegrationTest
   # setup do
   #   @repository_evaluation = repository_evaluations(:one)
   # end
@@ -13,11 +13,11 @@ class RepositoryEvaluationsControllerTest < ActionDispatch::IntegrationTest
   # end
   #
   # test 'should create repository_evaluation' do
-  #   assert_difference('RepositoryEvaluation.count') do
+  #   assert_difference('Evaluations::Repository.count') do
   #     post repository_evaluations_url, params: { repository_evaluation: { name: @repository_evaluation.name, rubric_id: @repository_evaluation.rubric_id } }
   #   end
   #
-  #   assert_redirected_to repository_evaluation_url(RepositoryEvaluation.last)
+  #   assert_redirected_to repository_evaluation_url(Evaluations::Repository.last)
   # end
   #
   # test 'should show repository_evaluation' do

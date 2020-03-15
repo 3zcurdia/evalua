@@ -17,10 +17,7 @@ class EvaluationsController < ApplicationController
   # DELETE /evaluations/1.json
   def destroy
     @evaluation.destroy
-    respond_to do |format|
-      format.html { redirect_to evaluations_url, notice: 'Evaluation was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to evaluations_url, notice: 'Evaluation was successfully destroyed.'
   end
 
   private

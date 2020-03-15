@@ -16,10 +16,10 @@
 one:
   name: Evaluation One
   rubric: one
-  type: PullRequestEvaluation
+  type: Evaluations::PullRequest
   repo_url: https://github.com/classroom/repo
 
 two:
   name: Evaluation Two
   rubric: two
-  type: RepositoryEvaluation
+  type: Evaluations::Repository

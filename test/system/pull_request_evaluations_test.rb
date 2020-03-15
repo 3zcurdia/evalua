@@ -2,7 +2,7 @@
 
 require 'application_system_test_case'
 
-class PullRequestEvaluationsTest < ApplicationSystemTestCase
+class Evaluations::PullRequestsTest < ApplicationSystemTestCase
   setup do
     @pull_request_evaluation = pull_request_evaluations(:one)
   end

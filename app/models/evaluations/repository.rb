@@ -13,5 +13,7 @@
 #  updated_at :datetime         not null
 #
 
-class RepositoryEvaluation < Evaluation
+module Evaluations
+  class Repository < Evaluation
+  end
 end

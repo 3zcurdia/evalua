@@ -2,7 +2,7 @@
 
 require 'application_system_test_case'
 
-class RepositoryEvaluationsTest < ApplicationSystemTestCase
+class Evaluations::RepositorysTest < ApplicationSystemTestCase
   setup do
     @repository_evaluation = repository_evaluations(:one)
   end

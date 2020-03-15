@@ -1,0 +1,16 @@
+<% content_for(:breadcrumbs) do %>
+<li>
+  <%= link_to 'Users', users_path %>
+</li>
+<li>
+  <%= link_to @user.name, @user %>
+</li>
+<li class="is-active">
+  <%= link_to 'Edit', edit_user_path(@user) %>
+</li>
+<% end %>
+
+<h1 class="title"><%= @user.name %></h1>
+<hr>
+
+<%= render 'form', user: @user %>

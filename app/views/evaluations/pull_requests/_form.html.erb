@@ -12,21 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, class: 'label' %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :rubric_id %>
-    <%= form.text_field :rubric_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :repo_url %>
+    <%= form.label :repo_url, class: 'label' %>
     <%= form.text_field :repo_url %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="control">
+    <%= form.submit class: 'button is-primary' %>
   </div>
 <% end %>

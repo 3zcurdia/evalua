@@ -1,0 +1,40 @@
+<% content_for(:breadcrumbs) do %>
+<li>
+  <%= link_to 'Users', users_path %>
+</li>
+<li class="is-active">
+  <%= link_to @user.name, @user %>
+</li>
+<% end %>
+
+<h1 class="title"><%= @user.name %></h1>
+<p class="subtitle is-6">
+  <%= link_to_edit path: edit_user_path(@user), label: 'Edit' %> |
+  Updated at <%= l @user.updated_at.to_date, format: :long %>
+</p>
+<hr>
+
+<article class="media">
+  <figure class="media-left">
+    <%= image_tag @user.image_url, class: 'image is-128x128' %>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <span class="icon"><i class="fa fa-github"></i></span>
+        <%= @user.nickname %>
+      </p>
+      <p>
+        <span class="icon"><i class="fa fa-envelope"></i></span>
+        <%= @user.email %>
+      </p>
+      <p>
+        <span class="icon"><i class="fa fa-user"></i></span>
+        <%= @user.role %>
+      </p>
+    </div>
+  </div>
+  <!-- <div class="media-right">
+    <button class="delete"></button>
+  </div> -->
+</article>

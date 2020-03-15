@@ -13,6 +13,8 @@
 #  updated_at :datetime         not null
 #
 
-class PullRequestEvaluation < Evaluation
-  validates :repo_url, presence: true, format: URI.regexp(%w[http https])
+module Evaluations
+  class PullRequest < Evaluation
+    validates :repo_url, presence: true, format: URI.regexp(%w[http https])
+  end
 end
