@@ -1,4 +1,4 @@
-<section class="hero is-primary <%= 'is-fullheight-with-navbar' unless signed_in? %>">
+<section class="hero is-primary is-fullheight-with-navbar">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">Welcome to Evalua!</h1>
@@ -6,9 +6,3 @@
     </div>
   </div>
 </section>
-<% if flash[:notice].present? %>
-<div class="notification is-info is-light">
-  <button class="delete"></button>
-  <%= notice %>
-</div>
-<% end %>

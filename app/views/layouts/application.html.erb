@@ -16,17 +16,15 @@
           <span class="icon"><i class="fa fa-angellist fa-2x"></i></span>
           <span class="title has-text-white">&nbsp;Evalua</span>
           <% end %>
-          <span class="navbar-burger burger" data-target="mainNavbar">
+          <span class="navbar-burger burger" data-target="mainMenu">
             <span></span>
             <span></span>
             <span></span>
           </span>
         </div>
-        <div id="mainNavbar" class="navbar-menu">
+        <div class="navbar-menu">
           <div class="navbar-end">
             <% if signed_in? %>
-            <%= link_to "Rubrics", rubrics_path, class: 'navbar-item' %>
-
             <div class="navbar-item has-dropdown is-hoverable">
               <div class="navbar-link">
                 <span class="icon"><i class="fa fa-github"></i></span>
@@ -48,22 +46,29 @@
         </div>
       </div>
     </nav>
-    <section class="section">
-      <div class="container">
-        <% if flash[:notice].present? %>
-        <div class="notification is-info is-light">
-          <button class="delete"></button>
-          <%= notice %>
+      <section class="section">
+      <div class="container is-fluid">
+        <div class="columns">
+          <div class="column is-one-quarter">
+            <%= render partial: 'menu' %>
+          </div>
+          <div class="column">
+            <% if flash[:notice].present? %>
+            <div class="notification is-info is-light">
+              <button class="delete"></button>
+              <%= notice %>
+            </div>
+            <% end %>
+            <% if signed_in? && content_for?(:breadcrumbs) %>
+            <nav class="breadcrumb" aria-label="breadcrumbs">
+              <ul>
+                <%= yield(:breadcrumbs) %>
+              </ul>
+            </nav>
+            <% end %>
+            <%= yield %>
+          </div>
         </div>
-        <% end %>
-        <% if signed_in? && content_for?(:breadcrumbs) %>
-          <nav class="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <%= yield(:breadcrumbs) %>
-            </ul>
-          </nav>
-        <% end %>
-        <%= yield %>
       </div>
     </section>
     <footer class="footer">

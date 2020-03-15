@@ -9,41 +9,22 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="navbar <%= signed_in? ? 'is-dark' : 'is-primary' %>" role="navigation" aria-label="dropdown navigation">
+    <nav class="navbar is-primary" role="navigation">
       <div class="container">
         <div class="navbar-brand">
           <%= link_to root_path, class: 'navbar-item' do %>
-          <span class="icon"><i class="fa fa-angellist fa-2x"></i></span>
-          <span class="title has-text-white">&nbsp;Evalua</span>
+            <span class="icon"><i class="fa fa-angellist fa-2x"></i></span>
+            <span class="title has-text-white">&nbsp;Evalua</span>
           <% end %>
-          <span class="navbar-burger burger" data-target="mainNavbar">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
         </div>
-        <div id="mainNavbar" class="navbar-menu">
+        <div class="navbar-menu">
           <div class="navbar-end">
-            <% if signed_in? %>
-            <%= link_to "Rubrics", rubrics_path, class: 'navbar-item' %>
-
-            <div class="navbar-item has-dropdown is-hoverable">
-              <div class="navbar-link">
-                <span class="icon"><i class="fa fa-github"></i></span>
-                <span><%= current_user.nickname %></span>
-              </div>
-              <div class="navbar-dropdown">
-                <%= link_to "Sign out", signout_path, class: 'navbar-item', method: :delete %>
-              </div>
-            </div>
-            <% else %>
             <span class="navbar-item">
               <%= link_to "/auth/github", class: 'button is-black' do %>
               <span class="icon"><i class="fa fa-github"></i></span>
               <span>Sign In</span>
               <% end %>
             </span>
-            <% end %>
           </div>
         </div>
       </div>

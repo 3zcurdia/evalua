@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  skip_before_action :authenticate!
+  skip_before_action :authenticate!, only: :create
 
   def create
     user = User.from_omniauth(auth_hash)
     session[:user_id] = user.id
-    redirect_to root_url, notice: 'Signed in!'
+    redirect_to dashboard_url, notice: 'Signed in successfully!'
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: 'Signed out!'
+    redirect_to root_url
   end
 
   private
