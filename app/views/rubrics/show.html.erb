@@ -11,7 +11,6 @@
 <p class="subtitle is-6">
   <%= link_to_add path: new_rubric_item_path(@rubric), label: 'Add Item' %> |
   <%= link_to_edit path: edit_rubric_path(@rubric), label: 'Edit' %> |
-  <%= link_to_destroy path: @rubric, label: 'Destroy' %> |
   Updated at <%= l @rubric.updated_at.to_date, format: :long %>
 </p>
 <hr>

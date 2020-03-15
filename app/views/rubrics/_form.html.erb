@@ -22,6 +22,11 @@
 
       <div class="control">
         <%= form.submit class: 'button is-primary' %>
+        <% if form.object.persisted? %>
+        <%= link_to form.object, class: 'button is-danger', method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <span class="icon is-small"><i class="fa fa-trash"></i></span><span>Destroy</span>
+        <% end %>
+        <% end %>
       </div>
     </div>
   </div>
