@@ -46,6 +46,8 @@ class Evaluation < ApplicationRecord
 
   def completion_percent
     user_evaluations.sum(&:completion_percent) / user_evaluations.count
+  rescue ZeroDivisionError
+    0
   end
 
   def average_user_evaluation

@@ -16,6 +16,7 @@
   <%= link_to_edit path: edit_evaluations_pull_request_path(@evaluation), label: 'Edit' %>
 </p>
 <hr>
+<progress class="progress is-primary is-small" value="<%= @evaluation.completion_percent %>" max="1.0"><%= @evaluation.completion_percent * 100 %>%</progress>
 
 <div class="columns">
   <div class="column is-one-quarter">

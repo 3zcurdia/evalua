@@ -30,6 +30,8 @@ class UserEvaluation < ApplicationRecord
 
   def completion_percent
     points.count.to_f / evaluation.rubric_items_count
+  rescue ZeroDivisionError
+    0
   end
 
   def bell
