@@ -8,8 +8,8 @@
     <li>
       <%= link_to 'Evaluations', evaluations_path, class: active_menu_class('evaluations') %>
       <ul>
-        <li><%= link_to 'Pull Request', evaluations_pull_requests_path %></li>
-        <li><%= link_to 'Repositories', evaluations_repositories_path %></li>
+        <li><%= link_to 'Pull Request', evaluations_pull_requests_path, class: active_menu_class('pull_requests') %></li>
+        <li><%= link_to 'Repository', evaluations_repositories_path, class: active_menu_class('repositories') %></li>
       </ul>
     </li>
   </ul>

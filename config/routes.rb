@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   delete 'signout', to: 'sessions#destroy', as: 'signout'
 
   namespace :evaluations do
-    resources :pull_requests, except: :destroy
-    resources :repositories, except: :destroy
+    resources :pull_requests
+    resources :repositories
   end
-  resources :evaluations, only: %i[index show destroy]
+  resources :evaluations, only: :index
   resources :rubric_items, only: %i[update destroy]
   resources :rubrics do
     resources :items, controller: :rubric_items, only: %i[new create edit]

@@ -1,2 +1,24 @@
+<% content_for(:breadcrumbs) do %>
+<li>
+  <%= link_to 'Evaluations', evaluations_path %>
+</li>
+<li class="is-active">
+  <%= link_to 'Repository', evaluations_repositories_path %>
+</li>
+<% end %>
 <h1 class="title">Repository Evaluations</h1>
+<p class="subtitle is-6">
+  <%= link_to_add path: new_evaluations_repository_path, label: 'Add evaluation' %>
+</p>
 <hr>
+
+<% if @evaluations.exists? %>
+  <%= render partial: 'repository', collection: @evaluations, as: :evaluation %>
+<% else %>
+<div class="container has-text-centered">
+  <%= link_to new_evaluations_repository_path, class: 'button is-primary' do %>
+  <span class="icon"><i class="fa fa-plus"></i></span>
+  <span>Add Repository Evaluation</span>
+  <% end %>
+</div>
+<% end %>

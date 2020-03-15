@@ -12,7 +12,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  aasm_state :string
-#  closed_at  :datetime
+#  closed_on  :datetime
 #
 
 class Evaluation < ApplicationRecord
@@ -24,7 +24,7 @@ class Evaluation < ApplicationRecord
   delegate :items_count, to: :rubric, prefix: true
 
   aasm do
-    state :todo, initial: true
+    state :draft, initial: true
     state :in_progress, :review, :done
 
     event :open do

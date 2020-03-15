@@ -1,19 +1,27 @@
+<% content_for(:breadcrumbs) do %>
+<li>
+  <%= link_to 'Evaluations', evaluations_path %>
+</li>
+<li>
+  <%= link_to 'Pull Request', evaluations_pull_requests_path %>
+</li>
+<li class="is-active">
+  <%= link_to @evaluation.name,  @evaluation %>
+</li>
+<% end %>
 
-
-<p>
-  <strong>Name:</strong>
-  <%= @pull_request_evaluation.name %>
+<h1 class="title"><%= @evaluation.name %></h1>
+<p class="subtitle is-6">
+  <%= link_to @evaluation.repo_url, @evaluation.repo_url %><br>
+  <%= link_to_edit path: edit_evaluations_pull_request_path(@evaluation), label: 'Edit' %>
 </p>
+<hr>
 
-<p>
-  <strong>Rubric:</strong>
-  <%= @pull_request_evaluation.rubric_id %>
-</p>
-
-<p>
-  <strong>Repo url:</strong>
-  <%= @pull_request_evaluation.repo_url %>
-</p>
-
-<%= link_to 'Edit', edit_pull_request_evaluation_path(@pull_request_evaluation) %> |
-<%= link_to 'Back', pull_request_evaluations_path %>
+<div class="columns">
+  <div class="column is-one-quarter">
+    <%= render @evaluation.rubric %>
+  </div>
+  <div class="column">
+    <h1 class="title is-4">Pull Requests</h1>
+  </div>
+</div>

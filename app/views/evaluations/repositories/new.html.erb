@@ -1,5 +1,17 @@
-<h1>New Repository Evaluation</h1>
+<% content_for(:breadcrumbs) do %>
+<li>
+  <%= link_to 'Evaluations', evaluations_path %>
+</li>
+<li>
+  <%= link_to 'Repository', evaluations_repositories_path %>
+</li>
+<li class="is-active">
+  <%= link_to 'Add Evaluation', new_evaluations_repository_path %>
+</li>
+<% end %>
 
-<%= render 'form', repository_evaluation: @repository_evaluation %>
+<h1 class="title">New Repository Evaluation</h1>
+<p class="subtitle is-6">All the submissions to evaluation contain the urls to the repository</p>
+<hr>
 
-<%= link_to 'Back', repository_evaluations_path %>
+<%= render 'form', repository_evaluation: @evaluation %>

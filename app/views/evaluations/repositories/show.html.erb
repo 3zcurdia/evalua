@@ -1,14 +1,26 @@
+<% content_for(:breadcrumbs) do %>
+<li>
+  <%= link_to 'Evaluations', evaluations_path %>
+</li>
+<li>
+  <%= link_to 'Repository', evaluations_repositories_path %>
+</li>
+<li class="is-active">
+  <%= link_to @evaluation.name,  @evaluation %>
+</li>
+<% end %>
 
-
-<p>
-  <strong>Name:</strong>
-  <%= @repository_evaluation.name %>
+<h1 class="title"><%= @evaluation.name %></h1>
+<p class="subtitle is-6">
+  <%= link_to_edit path: edit_evaluations_repository_path(@evaluation), label: 'Edit' %>
 </p>
+<hr>
 
-<p>
-  <strong>Rubric:</strong>
-  <%= @repository_evaluation.rubric_id %>
-</p>
-
-<%= link_to 'Edit', edit_repository_evaluation_path(@repository_evaluation) %> |
-<%= link_to 'Back', repository_evaluations_path %>
+<div class="columns">
+  <div class="column is-one-quarter">
+    <%= render @evaluation.rubric %>
+  </div>
+  <div class="column">
+    <h1 class="title is-4">Submited</h1>
+  </div>
+</div>

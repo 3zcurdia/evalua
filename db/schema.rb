@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_03_15_073150) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.string 'aasm_state'
-    t.datetime 'closed_at'
+    t.datetime 'closed_on'
     t.index ['rubric_id'], name: 'index_evaluations_on_rubric_id'
   end
 

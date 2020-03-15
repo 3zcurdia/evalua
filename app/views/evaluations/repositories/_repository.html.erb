@@ -1,0 +1,12 @@
+<article class="media">
+  <div class="media-content">
+    <div class="content">
+      <p class="title is-4">
+        <span class="icon is-small"><i class="fa fa-inbox"></i></span>
+        <%= link_to evaluation.name, evaluation %>
+      </p>
+      <p class="subtitle is-6"><%= tag_badge_state(evaluation.aasm_state) %></p>
+      <p></p>
+    </div>
+  </div>
+</article>

@@ -2,6 +2,6 @@
 
 class AddClosedAtToEvaluations < ActiveRecord::Migration[6.0]
   def change
-    add_column :evaluations, :closed_at, :datetime
+    add_column :evaluations, :closed_on, :datetime
   end
 end

@@ -1,22 +1,6 @@
 <h1 class="title">Evaluations</h1>
 <hr>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @evaluations.each do |evaluation| %>
-      <tr>
-        <td><%= evaluation.name %></td>
-        <td><%= link_to 'Show', evaluation %></td>
-        <td><%= link_to 'Edit', edit_evaluation_path(evaluation) %></td>
-        <td><%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @evaluations.each do |evaluation| %>
+  <%= render evaluation, partial: evaluation.class.name.underscore, evaluation: evaluation %>
+<% end %>
