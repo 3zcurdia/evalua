@@ -12,17 +12,20 @@
 
 <h1 class="title"><%= @evaluation.name %></h1>
 <p class="subtitle is-6">
-  <%= link_to @evaluation.repo_url, @evaluation.repo_url %><br>
+  <%= link_to 'Details', evaluation_user_evaluations_path(@evaluation) %> |
   <%= link_to_edit path: edit_evaluations_pull_request_path(@evaluation), label: 'Edit' %>
 </p>
 <hr>
-<progress class="progress is-primary is-small" value="<%= @evaluation.completion_percent %>" max="1.0"><%= @evaluation.completion_percent * 100 %>%</progress>
 
 <div class="columns">
   <div class="column is-one-quarter">
+    <h2 class="title is-4">Repository</h2>
+    <p class="subtitle is-7"><%= link_to @evaluation.repo_url, @evaluation.repo_url %></p>
     <%= render @evaluation.rubric %>
   </div>
   <div class="column">
+    <h2 class="title is-4">Progress</h2>
+    <%= progress_bar(@evaluation.completion_percent) %>
     <h1 class="title is-4">Pull Requests</h1>
   </div>
 </div>

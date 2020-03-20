@@ -29,9 +29,9 @@ class UserEvaluation < ApplicationRecord
   end
 
   def completion_percent
+    return 0.0 if evaluation.rubric_items_count.zero?
+
     points.count.to_f / evaluation.rubric_items_count
-  rescue ZeroDivisionError
-    0
   end
 
   def bell

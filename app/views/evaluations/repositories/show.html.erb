@@ -12,16 +12,18 @@
 
 <h1 class="title"><%= @evaluation.name %></h1>
 <p class="subtitle is-6">
+  <%= link_to 'Details', evaluation_user_evaluations_path(@evaluation) %> |
   <%= link_to_edit path: edit_evaluations_repository_path(@evaluation), label: 'Edit' %>
 </p>
 <hr>
-<progress class="progress is-primary is-small" value="<%= @evaluation.completion_percent %>" max="1.0"><%= @evaluation.completion_percent * 100 %>%</progress>
 
 <div class="columns">
   <div class="column is-one-quarter">
     <%= render @evaluation.rubric %>
   </div>
   <div class="column">
+    <h2 class="title is-4">Progress</h2>
+    <%= progress_bar(@evaluation.completion_percent) %>
     <h1 class="title is-4">Submited</h1>
   </div>
 </div>

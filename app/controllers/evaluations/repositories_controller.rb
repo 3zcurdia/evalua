@@ -8,6 +8,8 @@ module Evaluations
       @evaluations = Evaluations::Repository.all
     end
 
+    def show; end
+
     def new
       @evaluation = Evaluations::Repository.new
     end
