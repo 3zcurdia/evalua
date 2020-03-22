@@ -1,0 +1,38 @@
+{
+  "name": "Evalua",
+  "description": "Autograde tool through github",
+  "addons": [],
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
+  "env": {
+    "CLASSROOM_WEBHOOK_PREFIX_URL": {
+      "description": "The URL for your application to receive webhooks ex https://classroom.github.com",
+      "required": true
+    },
+    "GITHUB_CLIENT_ID": {
+      "description": "The GitHub Application Client ID.",
+      "required": true
+    },
+    "GITHUB_CLIENT_SECRET": {
+      "description": "The GitHub Application Client Secret.",
+      "required": true
+    },
+    "GITHUB_ADMINS": {
+      "description": "GitHub IDs of staff members that have staff access.",
+      "required": false
+    }
+  },
+  "addons": [
+    "heroku-postgresql",
+    "rediscloud",
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
