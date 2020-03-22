@@ -1,0 +1,31 @@
+<% if @user_evaluation %>
+<div class="container contnet">
+  <p>
+    <strong class="subtitle is-5">Repository</strong>
+    <span>
+      <%= link_to_edit path: edit_evaluation_user_evaluation_path(@evaluation, @user_evaluation) %>
+    </span>
+    <br>
+    <%= link_to @user_evaluation.source_url, @user_evaluation.source_url %>
+  </p>
+  <p>
+    <strong class="subtitle is-5">Evaluated at</strong><br>
+    <%= number_to_percentage(@user_evaluation.completion_percent * 100) %><br/>
+  </p>
+  <p>
+    <strong class="subtitle is-5">Total Points:</strong><br>
+    <%= @user_evaluation.total_points %><br/>
+  </p>
+  <p>
+    <strong class="subtitle is-5">Average:</strong><br>
+    <%= number_with_precision(@user_evaluation.average * 100, precision: 2) %><br/>
+  </p>
+</div>
+<% else %>
+<div class="container has-text-centered">
+  <%= link_to new_evaluation_user_evaluation_path(@evaluation), class: 'button is-primary' do %>
+  <span class="icon"><i class="fa fa-plus"></i></span>
+  <span>Add Repository Evaluation</span>
+  <% end %>
+</div>
+<% end %>

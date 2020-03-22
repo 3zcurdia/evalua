@@ -8,7 +8,9 @@ module Evaluations
       @evaluations = Evaluations::Repository.all
     end
 
-    def show; end
+    def show
+      @user_evaluation = @evaluation.user_evaluations.where(user_id: current_user.id).last
+    end
 
     def new
       @evaluation = Evaluations::Repository.new

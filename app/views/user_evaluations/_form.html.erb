@@ -1,0 +1,23 @@
+<%= form_with(model: user_evaluation, local: true) do |form| %>
+  <% if user_evaluation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_evaluation.errors.count, "error") %> prohibited this user_evaluation from being saved:</h2>
+
+      <ul>
+        <% user_evaluation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form.hidden_field :evaluation_id %>
+
+  <div class="field">
+    <%= form.label :source_url, class: 'label' %>
+    <%= form.url_field :source_url, class: 'input' %>
+  </div>
+
+  <div class="control">
+    <%= form.submit class: 'button is-primary' %>
+  </div>
+<% end %>

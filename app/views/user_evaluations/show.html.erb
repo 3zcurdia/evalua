@@ -1,0 +1,34 @@
+<% content_for(:breadcrumbs) do %>
+<li>
+  <%= link_to 'Evaluations', evaluations_path %>
+</li>
+<li>
+  <% if @evaluation.type == 'Evaluations::Repository' %>
+    <%= link_to 'Repository', evaluations_repositories_path %>
+  <% else %>
+    <%= link_to 'Pull Request', evaluations_pull_requests_path %>
+  <% end %>
+</li>
+<li>
+  <%= link_to @evaluation.name, @evaluation %>
+</li>
+<li>
+  <%= link_to 'Details', evaluation_user_evaluations_path(@evaluation) %>
+</li>
+<li class="is-active">
+  <%= link_to @user_evaluation.user.name, evaluation_user_evaluation_path(@evaluation, @user_evaluation) %>
+</li>
+<% end %>
+
+<h1 class="title"><%= @user_evaluation.user.name %></h1>
+<p class="subtitle is-6">
+  <%= link_to_edit path: edit_evaluation_user_evaluation_path(@evaluation, @user_evaluation), label: 'Edit' %>
+</p>
+<hr>
+
+<div class="content">
+  <p>
+    <strong>Source url:</strong>
+    <%= @user_evaluation.source_url %>
+  </p>
+</div>

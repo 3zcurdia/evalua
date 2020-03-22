@@ -1,0 +1,49 @@
+<% content_for(:breadcrumbs) do %>
+<li>
+  <%= link_to 'Evaluations', evaluations_path %>
+</li>
+<li>
+  <% if @evaluation.type == 'Evaluations::Repository' %>
+    <%= link_to 'Repository', evaluations_repositories_path %>
+  <% else %>
+    <%= link_to 'Pull Request', evaluations_pull_requests_path %>
+  <% end %>
+</li>
+<li>
+  <%= link_to @evaluation.name, @evaluation %>
+</li>
+<li class="is-active">
+  <%= link_to 'Details', evaluation_user_evaluations_path(@evaluation) %>
+</li>
+<% end %>
+<h1 class="title"><%= @evaluation.name %></h1>
+<hr>
+
+<table class="table is-striped is-narrow is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Url</th>
+      <th>Points</th>
+      <th>Average</th>
+      <th>Bell</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_evaluations.each do |user_evaluation| %>
+      <tr>
+        <td><%= user_evaluation.user.name %></td>
+        <td><%= link_to user_evaluation.source_url, user_evaluation.source_url %></td>
+        <td><%= user_evaluation.total_points %></td>
+        <td>-</td>
+        <td>-</td>
+        <td><%= link_to 'Show', user_evaluation %></td>
+        <td><%= link_to 'Edit', edit_evaluation_user_evaluation_path(@evaluation, user_evaluation) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

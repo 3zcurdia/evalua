@@ -10,7 +10,10 @@ Rails.application.routes.draw do
     resources :pull_requests
     resources :repositories
   end
-  resources :evaluations, only: :index
+  resources :evaluations, only: :index do
+    resources :user_evaluations, except: :destroy
+  end
+  resources :user_evaluations, except: :destroy
   resources :rubric_items, only: %i[update destroy]
   resources :rubrics do
     resources :items, controller: :rubric_items, only: %i[new create edit]

@@ -1,0 +1,28 @@
+<% content_for(:breadcrumbs) do %>
+<li>
+  <%= link_to 'Evaluations', evaluations_path %>
+</li>
+<li>
+  <% if @evaluation.type == 'Evaluations::Repository' %>
+    <%= link_to 'Repository', evaluations_repositories_path %>
+  <% else %>
+  <% end %>
+</li>
+<li>
+  <%= link_to @evaluation.name, @evaluation %>
+</li>
+<li>
+  <%= link_to 'Details', evaluation_user_evaluations_path(@evaluation) %>
+</li>
+<li>
+  <%= link_to @user_evaluation.user.name, evaluation_user_evaluation_path(@evaluation, @user_evaluation) %>
+</li>
+<li class="is-active">
+  <%= link_to 'Edit', edit_evaluation_user_evaluation_path(@evaluation, @user_evaluation) %>
+</li>
+<% end %>
+
+<h1 class="title"><%= @user_evaluation.user.name %> Evaluation</h1>
+<hr>
+
+<%= render 'form', user_evaluation: @user_evaluation %>
