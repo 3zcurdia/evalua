@@ -1,7 +1,6 @@
 {
   "name": "Evalua",
   "description": "Autograde tool through github",
-  "addons": [],
   "scripts": {
     "postdeploy": "bundle exec rake db:migrate"
   },
