@@ -3,11 +3,7 @@
   <%= link_to 'Evaluations', evaluations_path %>
 </li>
 <li>
-  <% if @evaluation.type == 'Evaluations::Repository' %>
-    <%= link_to 'Repository', evaluations_repositories_path %>
-  <% else %>
-    <%= link_to 'Pull Request', evaluations_pull_requests_path %>
-  <% end %>
+  <%= link_to_evaluations(@evaluation.type) %>
 </li>
 <li>
   <%= link_to @evaluation.name, @evaluation %>
