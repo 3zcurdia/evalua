@@ -12,14 +12,16 @@
   <%= link_to 'Details', evaluation_user_evaluations_path(@evaluation) %>
 </li>
 <li>
-  <%= link_to @user_evaluation.user.name, evaluation_user_evaluation_path(@evaluation, @user_evaluation) %>
+  <%= link_to @user_evaluation.user.best_name, evaluation_user_evaluation_path(@evaluation, @user_evaluation) %>
 </li>
 <li class="is-active">
   <%= link_to 'Edit', edit_evaluation_user_evaluation_path(@evaluation, @user_evaluation) %>
 </li>
 <% end %>
 
-<h1 class="title"><%= @user_evaluation.user.name %> Evaluation</h1>
+<h1 class="title"><%= @user_evaluation.title %></h1>
 <hr>
 
-<%= render 'form', user_evaluation: @user_evaluation %>
+<% if current_user.user? %>
+  <%= render 'form', user_evaluation: @user_evaluation %>
+<% end %>

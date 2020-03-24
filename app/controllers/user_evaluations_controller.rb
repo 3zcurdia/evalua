@@ -50,6 +50,6 @@ class UserEvaluationsController < ApplicationController
   end
 
   def user_evaluation_params
-    params.require(:user_evaluation).permit(:evaluation_id, :source_url)
+    params.require(:user_evaluation).permit(:evaluation_id, :title, :source_url)
   end
 end

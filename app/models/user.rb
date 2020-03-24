@@ -20,6 +20,12 @@ class User < ApplicationRecord
   has_many :user_evaluations, inverse_of: :user
   enum role: %i[user moderator admin]
 
+  validates :nickname, presence: true
+
+  def best_name
+    name || nickname
+  end
+
   def self.from_omniauth(auth)
     where(provider: auth['provider'], uid: auth['uid']).first || create_from_omniauth(auth)
   end

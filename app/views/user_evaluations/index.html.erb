@@ -30,7 +30,7 @@
   <tbody>
     <% @user_evaluations.each do |user_evaluation| %>
       <tr>
-        <td><%= user_evaluation.user.name %></td>
+        <td><%= user_evaluation.user.best_name %></td>
         <td><%= link_to user_evaluation.source_url, user_evaluation.source_url %></td>
         <td><%= user_evaluation.total_points %></td>
         <td>-</td>

@@ -28,7 +28,7 @@ class Evaluation < ApplicationRecord
     state :in_progress, :review, :done
 
     event :open do
-      transitions from: :todo, to: :in_progress
+      transitions from: :draft, to: :in_progress
     end
 
     event :close do

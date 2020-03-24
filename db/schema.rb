@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_15_073150) do
+ActiveRecord::Schema.define(version: 2020_03_24_033401) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2020_03_15_073150) do
     t.string 'source_url'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.string 'title'
     t.index ['evaluation_id'], name: 'index_user_evaluations_on_evaluation_id'
     t.index ['user_id'], name: 'index_user_evaluations_on_user_id'
   end

@@ -13,6 +13,11 @@
   <%= form.hidden_field :evaluation_id %>
 
   <div class="field">
+    <%= form.label :title, class: 'label' %>
+    <%= form.url_field :title, class: 'input' %>
+  </div>
+
+  <div class="field">
     <%= form.label :source_url, class: 'label' %>
     <%= form.url_field :source_url, class: 'input' %>
   </div>
