@@ -11,7 +11,7 @@ gem 'rails', '~> 6.0.3'
 
 gem 'aasm'
 gem 'annotate'
-gem 'jbuilder', '~> 2.7'
+gem 'jbuilder', '~> 2.10'
 gem 'octokit'
 gem 'omniauth-github'
 gem 'pundit'
