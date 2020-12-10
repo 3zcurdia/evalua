@@ -1,5 +1,3 @@
-inherit_from: .rubocop_todo.yml
-
 AllCops:
   NewCops: enable
   SuggestExtensions: false
@@ -11,5 +9,16 @@ AllCops:
     - 'vendor/**/*'
     - 'log/**/*'
 
+Metrics/AbcSize:
+  Max: 20
+Metrics/MethodLength:
+  Max: 15
 Style/Documentation:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Exclude:
+  - 'test/**/*.rb'
+Layout/LineLength:
+  Exclude:
+  - 'test/**/*.rb'
