@@ -17,6 +17,6 @@
 
 module Evaluations
   class PullRequest < Evaluation
-    validates :repo_url, presence: true, format: URI.regexp(%w[http https])
+    validates :repo_url, presence: true, format: URI::DEFAULT_PARSER.make_regexp(%w[http https])
   end
 end

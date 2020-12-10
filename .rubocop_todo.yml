@@ -6,18 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 2
-Lint/FloatComparison:
-  Exclude:
-    - 'app/models/evaluation.rb'
-    - 'app/models/user_evaluation.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Lint/UriRegexp:
-  Exclude:
-    - 'app/models/evaluations/pull_request.rb'
-
 # Offense count: 1
 # Configuration parameters: IgnoredMethods, CountRepeatedAttributes.
 Metrics/AbcSize:
@@ -40,31 +28,6 @@ Style/ClassAndModuleChildren:
     - 'test/system/pull_request_evaluations_test.rb'
     - 'test/system/repository_evaluations_test.rb'
     - 'test/test_helper.rb'
-
-# Offense count: 28
-Style/Documentation:
-  Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/GlobalStdStream:
-  Exclude:
-    - 'config/environments/production.rb'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-# Configuration parameters: SafeForConstants.
-Style/RedundantFetchBlock:
-  Exclude:
-    - 'config/puma.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: IgnoredMethods.
-# IgnoredMethods: respond_to, define_method
-Style/SymbolProc:
-  Exclude:
-    - 'lib/tasks/evaluation_states.rake'
 
 # Offense count: 7
 # Cop supports --auto-correct.

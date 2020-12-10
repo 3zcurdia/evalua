@@ -25,7 +25,7 @@ class UserEvaluation < ApplicationRecord
   end
 
   def completed?
-    completion_percent == 1.0
+    points.count == evaluation.rubric_items_count
   end
 
   def completion_percent

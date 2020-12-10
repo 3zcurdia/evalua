@@ -41,7 +41,7 @@ class Evaluation < ApplicationRecord
   end
 
   def completed?
-    completion_percent == 1.0
+    completion_percent >= 0.9999
   end
 
   def completion_percent

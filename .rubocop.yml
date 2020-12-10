@@ -10,3 +10,6 @@ AllCops:
     - 'node_modules/**/*'
     - 'vendor/**/*'
     - 'log/**/*'
+
+Style/Documentation:
+  Enabled: false
