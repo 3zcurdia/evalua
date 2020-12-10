@@ -15,8 +15,6 @@ gem 'jbuilder', '~> 2.10'
 gem 'octokit'
 gem 'omniauth-github'
 gem 'pundit'
-gem 'sass-rails', '>= 6'
-gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.2'
 
 # Use Redis adapter to run Action Cable in production
