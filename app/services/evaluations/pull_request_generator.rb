@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Evaluations
-  class PullRequestGenerator
+  class PullRequestGenerator < ApplicationService
     attr_reader :evaluation, :repo
 
     def initialize(evaluation)
