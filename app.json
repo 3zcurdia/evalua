@@ -1,14 +1,11 @@
 {
   "name": "Evalua",
   "description": "Autograde tool through github",
+  "repository": "https://github.com/3zcurdia/evalua",
   "scripts": {
     "postdeploy": "bundle exec rake db:migrate"
   },
   "env": {
-    "CLASSROOM_WEBHOOK_PREFIX_URL": {
-      "description": "The URL for your application to receive webhooks ex https://classroom.github.com",
-      "required": true
-    },
     "GITHUB_CLIENT_ID": {
       "description": "The GitHub Application Client ID.",
       "required": true
@@ -24,12 +21,10 @@
   },
   "addons": [
     "heroku-postgresql",
-    "rediscloud"
+    "rediscloud",
+    "scheduler"
   ],
   "buildpacks": [
-    {
-      "url": "heroku/nodejs"
-    },
     {
       "url": "heroku/ruby"
     }
