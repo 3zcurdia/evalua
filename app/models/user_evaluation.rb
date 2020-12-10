@@ -20,7 +20,7 @@ class UserEvaluation < ApplicationRecord
 
   validates :evaluation, :user, presence: true
 
-  delegates :name, to: :user, prefix: true
+  delegate :name, to: :user, prefix: true
 
   def update_total_points!
     update(total_points: calc_total_points)
