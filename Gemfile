@@ -30,7 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rubocop'
+  gem 'rubocop', require: false
 end
 
 group :development do

@@ -8,13 +8,13 @@
     </tr>
   </thead>
   <tbody>
-    <% @evaluation.user_evaluations.each do |user_evaluation| %>
+    <% evaluation.user_evaluations.each do |user_evaluation| %>
       <tr>
         <td><%= user_evaluation.user.best_name %></td>
         <td><%= link_to user_evaluation.source_url, user_evaluation.source_url %></td>
         <td><%= user_evaluation.total_points %></td>
         <td><%= link_to 'Show', user_evaluation %></td>
-        <td><%= link_to 'Edit', edit_evaluation_user_evaluation_path(@evaluation, user_evaluation) %></td>
+        <td><%= link_to 'Edit', edit_evaluation_user_evaluation_path(evaluation, user_evaluation) %></td>
       </tr>
     <% end %>
   </tbody>

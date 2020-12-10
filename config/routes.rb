@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   delete 'signout', to: 'sessions#destroy', as: 'signout'
 
   namespace :evaluations do
-    resources :pull_requests
+    resources :pull_requests, except: :show
     resources :repositories
   end
   resources :evaluations, only: :index do

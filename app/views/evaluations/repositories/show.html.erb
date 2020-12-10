@@ -6,7 +6,7 @@
   <%= link_to 'Repository', evaluations_repositories_path %>
 </li>
 <li class="is-active">
-  <%= link_to @evaluation.name,  @evaluation %>
+  <%= link_to @evaluation.name, @evaluation %>
 </li>
 <% end %>
 
@@ -25,6 +25,10 @@
     <h2 class="title is-4">Progress</h2>
     <%= progress_bar(@evaluation.completion_percent) %>
     <h1 class="title is-4">Submited</h1>
-    <%= render partial: !current_user.user? ? 'submition' : 'table' %>
+    <% if current_user.user? %>
+      <%= render 'table', evaluation: @evaluation %>
+    <% else %>
+      <%= render 'submition', evaluation: @evaluation, user_evaluation: @user_evaluation %>
+    <% end %>
   </div>
 </div>
