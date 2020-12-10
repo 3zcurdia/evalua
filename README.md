@@ -1,4 +1,5 @@
 # Evalua
+![Tests](https://github.com/3zcurdia/evalua/workflows/Tests/badge.svg?branch=master)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/3zcurdia/evalua/tree/master)
 
