@@ -9,11 +9,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="navbar is-dark" role="navigation" aria-label="dropdown navigation">
+    <nav class="navbar is-black" role="navigation" aria-label="dropdown navigation">
       <div class="container">
         <div class="navbar-brand">
           <%= link_to dashboard_path, class: 'navbar-item' do %>
-          <span class="icon"><i class="fa fa-angellist fa-2x"></i></span>
+          <span class="icon"><i class="fas fa-fire-alt fa-2x"></i></span>
           <span class="title has-text-white">&nbsp;Evalua</span>
           <% end %>
           <span class="navbar-burger burger" data-target="mainMenu">
@@ -49,7 +49,7 @@
     <section class="section">
       <div class="container is-fluid">
         <div class="columns">
-          <div class="column is-one-quarter">
+          <div class="column is-one-fifth">
             <%= render 'menu' %>
           </div>
           <div class="column">
