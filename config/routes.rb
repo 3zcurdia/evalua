@@ -6,13 +6,7 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   delete 'signout', to: 'sessions#destroy', as: 'signout'
 
-  namespace :evaluations do
-    resources :pull_requests, except: :show
-    resources :repositories
-  end
-  resources :evaluations, only: :index do
-    resources :user_evaluations, except: :destroy
-  end
+  resources :evaluations
   resources :user_evaluations, except: :destroy
   resources :rubric_items, only: %i[update destroy]
   resources :rubrics do

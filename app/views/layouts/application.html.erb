@@ -23,6 +23,15 @@
           </span>
         </div>
         <div class="navbar-menu">
+          <div class="navbar-start">
+            <% if signed_in? %>
+              <%= link_to 'Rubrics', rubrics_path, class: "navbar-item #{active_menu_class('rubrics')}" %>
+              <%= link_to 'Evaluations', evaluations_path, class: "navbar-item #{active_menu_class('evaluations')}" %>
+              <% if current_user.admin? %>
+              <%= link_to 'Users', users_path, class: "navbar-item #{active_menu_class('users')}" %>
+              <% end %>
+            <% end %>
+          </div>
           <div class="navbar-end">
             <% if signed_in? %>
             <div class="navbar-item has-dropdown is-hoverable">
@@ -49,9 +58,6 @@
     <section class="section">
       <div class="container is-fluid">
         <div class="columns">
-          <div class="column is-one-fifth">
-            <%= render 'menu' %>
-          </div>
           <div class="column">
             <nav class="breadcrumb" aria-label="breadcrumbs">
               <ul><%= yield(:breadcrumbs) %></ul>

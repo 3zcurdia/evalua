@@ -3,15 +3,8 @@
     General
   </p>
   <ul class="menu-list">
-    <li><%= link_to 'Dashboard', dashboard_path, class: active_menu_class('dashboards') %></li>
     <li><%= link_to 'Rubrics', rubrics_path, class: active_menu_class('rubrics') %></li>
-    <li>
-      <%= link_to 'Evaluations', evaluations_path, class: active_menu_class('evaluations') %>
-      <ul>
-        <li><%= link_to 'Pull Request', evaluations_pull_requests_path, class: active_menu_class('pull_requests') %></li>
-        <li><%= link_to 'Repository', evaluations_repositories_path, class: active_menu_class('repositories') %></li>
-      </ul>
-    </li>
+    <li><%= link_to 'Evaluations', evaluations_path, class: active_menu_class('evaluations') %></li>
   </ul>
   <% if current_user.admin? %>
   <p class="menu-label">
