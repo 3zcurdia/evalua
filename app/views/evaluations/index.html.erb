@@ -1,6 +1,42 @@
 <h1 class="title">Evaluations</h1>
 <hr>
-
-<% @evaluations.each do |evaluation| %>
-  <%= render evaluation, partial: evaluation.class.name.underscore, evaluation: evaluation %>
+<% if @evaluations.any? %>
+  <% @evaluations.each do |evaluation| %>
+    <%= render evaluation, partial: evaluation.class.name.underscore, evaluation: evaluation %>
+  <% end %>
+<% else %>
+  <div class="columns">
+    <div class="column is-one-quarter is-offset-one-quarter">
+      <nav class="panel is-info">
+        <p class="panel-heading">
+          <span class="icon"><i class="fab fa-github-alt"></i></span>
+          <span>Repositories</span>
+        </p>
+        <div class="panel-block">
+          <p class="content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div class="panel-block">
+          <%= link_to "Create Repository Evaluation", new_evaluation_path(type: 'repository'), class: 'button is-link is-outlined is-fullwidth' %>
+        </div>
+      </nav>
+    </div>
+    <div class="column is-one-quarter">
+      <nav class="panel is-success">
+        <p class="panel-heading">
+          <span class="icon"><i class="fas fa-code-branch"></i></span>
+          <span>Pull Requests</span>
+        </p>
+        <div class="panel-block">
+          <p class="content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div class="panel-block">
+          <%= link_to "Create PullRequest Evaluation", new_evaluation_path(type: 'repository'), class: 'button is-success is-outlined is-fullwidth' %>
+        </div>
+      </nav>
+    </div>
+  </div>
 <% end %>

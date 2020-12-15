@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Evaluations
   def self.build(type, params = {})
     case type

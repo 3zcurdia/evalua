@@ -38,7 +38,7 @@ class UserTest < ActiveSupport::TestCase
         'email' => 'test@example.com',
         'name' => 'Joe Doe',
         'nickname' => 'test',
-        'image' => 'https://example.com/img.png',
+        'image' => 'https://example.com/img.png'
       }
     }
     user = User.create_from_omniauth(auth)
