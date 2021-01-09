@@ -7,7 +7,7 @@ ruby '2.7.2'
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 5.1'
-gem 'rails', '~> 6.1.0'
+gem 'rails', '~> 6.1.1'
 
 gem 'aasm'
 gem 'annotate'
